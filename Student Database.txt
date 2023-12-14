@@ -162,3 +162,29 @@ SUHANI(Object) is destroyed!
 --------------------------------
 Process exited after 103.1 seconds with return value 0
 Press any key to continue . . .
+
+Algorithm:
+
+1. Define a class named 'db' with private member variables for student details and public member functions.
+Declare a static variable stdno to keep track of the number of objects created in the class.
+
+Implement a default constructor 
+
+Implement a copy constructor that takes a pointer to another object and initializes the current object with its data. Increment stdno.
+
+Implement a member function getdata to take input for student details.
+
+Implement a friend function display to display the details of an object.
+
+Implement a destructor that displays a message when an object is destroyed.
+
+Implement a static member function count to display the number of objects created.
+
+In the main function:
+a. Declare an object d1 .
+b. Take user input for d1 using the getdata function and display it.
+c. Create a second object d2 
+d. Ask the user for the number of objects to create (n).
+e. Display the details of each object using the display function.
+f. Display the total number of objects created using the static member function count.
+g. Use a loop to delete the dynamically allocated objects.
