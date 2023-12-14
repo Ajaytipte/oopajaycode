@@ -206,3 +206,20 @@ Output :-
  Ccc  25-12-2003   98566472
  Xyz  01-05-1987   5487998556
  Do you want to go back to Main Menu?
+
+
+Algorithm:
+
+1.Define structure named 'rec'  to store iformation about the record.
+2. Declare Variables:
+  a. declare variable to tempararily store input data
+  b. declare empty vctor to store data
+  c. Declare iterator to traverse the vector
+3. Define the Functions:
+  a. create()
+  b. display()
+  c. Searhing()
+  d. sorting()
+5. In the Main Function:
+ declare varibale 'ana' for user response and 'choice' for the menu option.
+6.stop
