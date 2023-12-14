@@ -82,4 +82,20 @@ Main Menu
  Enter the name of state for searching its population: maharashtra
  population is125cr
  Do you want to continue?(y/n): n
+
+
+Algotithm:
+
+1. start
+2. Declare variables:
+  a. declare variable state, population, ans, choice
+  b. declare map 'm'
+  c. declare iterator 'i'
+3. use do while loop to repeatedly display teh main menu to the user based on the user responses
+4. Menu Options:
+ a. Insert an element(choice 1)
+ b. display the element ( choice 2)
+ c. search a state ( choice 3)
+5. Ask the user if they want to continue the loop (do you want to continue? (y/n))
+6. continue the loop if user enters 'y' or 'Y' otherwise exit the program.
  
