@@ -85,3 +85,12 @@ Output:-
 
  The sorted List is ...
         22.63   55.65   57.65   89.21   97.32
+
+
+
+Algorithm:
+1. Create Template template <typename T>
+2.Create a function to perform sorting.
+void Sort(T* const array,int size){
+3.Create a function to display array
+void printarray(T* const array,int size
