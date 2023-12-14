@@ -1,0 +1,88 @@
+Experiment no.3
+
+Program Code :-
+#include<iostream>
+#include<string.h>
+using namespace std;
+class publication
+{
+public:
+char t[10];
+float p;
+public:
+void getdata(void)   // To take input for publication details
+{
+cout<<"Enter title of publication";
+cin>>t;
+cout<<"Enter price of publication";
+cin>>p;
+
+}
+void putdata(void)  // to displaying the publication details
+
+{
+cout<<"Publication title"<<t<<endl;
+cout<<"Publication price"<<p<<endl;
+}
+};
+class book :public publication  // derived class from publication class
+{
+public:
+int pagecount;
+public:
+void getdata(void)
+{
+publication::getdata(); //call publication class function to get data
+{
+cout<<"Enter Book Page Count:";  //Acquire book datafrom user
+cin>>pagecount;
+}}
+void putdata(void)
+{
+publication::putdata();   //show publication data
+cout<<"book page count"<<pagecount<<endl;    //show book data
+}  
+};
+class tape:public publication  // derived class from publication class
+{
+private:
+float ptime;
+public:
+void getdata(void)
+{
+publication::getdata();  //call publication class function to get data
+cout<<"Enter tapes playing time(in min)";
+cin>>ptime;
+}
+void putdata(void)
+
+{
+publication::putdata();  //show publication data
+cout<<"tapes playing time"<<ptime<<endl;
+}
+};
+int main()
+{
+book b;
+tape t;
+b.getdata();
+t.getdata();
+b.putdata();
+t.putdata();
+return 0;
+}
+
+
+Output :-
+Enter title of publication :Technical
+Enter price of publication :500
+Enter Book Page Count:200
+Enter title of publication : cassete
+Enter price of publication :400
+Enter tapes playing time(in min) :20
+Publication title :Technical
+Publication price :500
+book page count :200
+Publication title :cassete
+Publication price :400
+tapes playing time :20

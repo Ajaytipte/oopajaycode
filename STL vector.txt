@@ -1,0 +1,208 @@
+Experiment No.6
+Program Code:-
+#include<iostream>
+#include<cstring>  // we do some string operations
+#include<cstdlib>  // standard library function
+#include<algorithm>  // we use here searching and sorting operation
+#include<vector>   // sequential container
+using namespace std;
+typedef struct rec  // rec is define to store information about record
+{
+char name[20];
+char BirthDt[20];
+char phone[11];
+}node;
+node temp;  //instance of the node structure for temporarily storing input data.
+vector<node> rec; // create an empty vector
+vector<node>::iterator ptr;  // ptr declare to traversed the vector
+bool compare(node r1,node r2)  // function is use for compare two nodes and use for sorting the vector
+{
+if(strcmp(r1.name,r2.name)<0)
+return true;
+else
+return false;
+
+}
+void Create()  //  take user input to create database
+{
+int n,i;
+cout<<"\n How many elements you want to insert: "<<endl;
+cin>>n;
+cout<<"\n Enter the Elements in the database: "<<endl;
+for(i=0; i<n; i++)
+{
+cout<<"\n Name:";
+cin>>temp.name;
+cout<<"\n Birth Date(dd-mm-yy):";
+cin>>temp.BirthDt;
+cout<<"\n Phone:";
+cin>>temp.phone;
+rec.push_back(temp); // push_back is pre defined function use to push dat from back
+}
+}
+void Display()  // display the content of database in tabular form
+{
+
+cout<<"\n\tThe contents of the database are:";
+cout<<"\n------------------------------------------------";
+cout<<"\n Name Birth Date Phone: ";
+cout<<"\n------------------------------------------------";
+for(ptr=rec.begin();ptr!=rec.end();ptr++)//accessing the contents through iterator
+{
+cout<<"\n";
+cout<<" "<<(*ptr).name;
+cout<<"  "<<(*ptr).BirthDt;
+cout<<"   "<<(*ptr).phone;
+}
+}
+void Searching()  // fuction for searching the reocrds enterd by user
+{
+char key[20];
+int flag=0;
+cout<<"\n Enter the name which you want to search: ";
+cin>>key;
+for(ptr=rec.begin();ptr!=rec.end();ptr++)
+{
+if(strcmp((*ptr).name,key)==0)
+{
+flag=1;
+break;
+}
+else
+flag=0;
+
+}
+if(flag==1)
+cout<<"\n The desired element is present in the database: ";
+else
+cout<<"\n The desired element is not present in the database: ";
+
+}
+void Sorting()  //  sort the records in the vector based 
+{
+sort(rec.begin(),rec.end(),compare);
+cout<<"\n\n Record is Sorted!!!"<<endl;
+}
+int main()
+{
+char ans='y';
+int choice;
+cout<<"\n Program for Searching and sorting: ";
+
+do
+{
+cout<<"\n Main Menu ";
+cout<<"\n 1. Create a database. ";
+cout<<"\n 2. Display a database. ";
+cout<<"\n 3. Search particular element. ";
+cout<<"\n 4. Sort the database(based on name).";
+cout<<"\n Enter your choice:";
+cin>>choice;
+switch(choice)   //  to execute different code blocks on the users choice 
+{
+case 1:Create();
+break;
+case 2:Display();
+break;
+case 3:Searching();
+break;
+case 4:Sorting();
+Display();
+break;
+
+}
+cout<<"\n Do you want to go back to Main Menu(y/n): ";
+cin>>ans;
+}while(ans=='y');
+return 0;
+}
+
+Output :-
+
+ Program for Searching and sorting
+ Main Menu
+ 1. Create a database
+ 2. Display a database
+ 3. Search particular element
+ 4. Sort the database(based on name)
+ Enter your choice:1
+
+ How many elements you want to insert?
+4
+
+ Enter the Elements in the database&quot
+
+ Name:Xyz
+
+ Birth Date(dd-mm-yy):01-05-1987
+
+ Phone:5487998556
+
+ Name:Abc
+
+ Birth Date(dd-mm-yy):08-11-1999
+
+ Phone:857879664
+
+ Name:Bbb
+
+ Birth Date(dd-mm-yy):15-08-2000
+
+ Phone:9874554
+
+ Name:Ccc
+
+ Birth Date(dd-mm-yy):25-12-2003
+
+ Phone:98566472
+
+ Do you want to go back to Main Menu?y
+
+ Main Menu
+ 1. Create a database
+ 2. Display a database
+ 3. Search particular element
+ 4. Sort the database(based on name)
+ Enter your choice:2
+
+        The contents of the database are:
+------------------------------------------------
+ Name Birth Date Phone
+------------------------------------------------
+ Xyz  01-05-1987   5487998556
+ Abc  08-11-1999   857879664
+ Bbb  15-08-2000   9874554
+ Ccc  25-12-2003   98566472
+ Do you want to go back to Main Menu?y
+
+ Main Menu
+ 1. Create a database
+ 2. Display a database
+ 3. Search particular element
+ 4. Sort the database(based on name)
+ Enter your choice:3
+
+ Enter the name which you want to searchBbb
+
+ The desired element is present in the database
+ Do you want to go back to Main Menu?y
+
+ Main Menu
+ 1. Create a database
+ 2. Display a database
+ 3. Search particular element
+ 4. Sort the database(based on name)
+ Enter your choice:4
+
+
+ Record is Sorted!!!
+
+        The contents of the database are:
+------------------------------------------------
+ Name Birth Date Phone
+------------------------------------------------
+ Abc  08-11-1999   857879664
+ Bbb  15-08-2000   9874554
+ Ccc  25-12-2003   98566472
+ Xyz  01-05-1987   5487998556
+ Do you want to go back to Main Menu?

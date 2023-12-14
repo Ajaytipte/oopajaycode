@@ -1,0 +1,164 @@
+Experiment 2
+
+Program Code
+
+#include<iostream>
+#include<string.h>
+#include<iomanip>   // it is also part of input/output
+
+using namespace std;
+class db
+{
+int roll;
+char name[20];
+char Class[10];
+char Div[10];
+char dob[10];
+char bg[3],contact[10];  // blood group
+char phone[10],license[12];
+
+public:
+static int stdno;
+static void count() // static member function to display no. of objects created
+{
+cout<<"\nNo. of objects created: "<<stdno;
+}
+void fin(){cout<<"\nInline Function!";}
+
+db() //Default constructor 
+{
+roll=0;
+strcpy(name,"Sachin");
+strcpy(Class,"I");
+strcpy(Div,"A");
+strcpy(dob,"11/11/1111");
+strcpy(bg,"A");
+strcpy(contact,"city");
+strcpy(phone,"9000000000");
+strcpy(license,"A0101010");
+++stdno;
+}
+db(db *ob) // copy constructor it initializes an object with the data of another object
+{
+strcpy(name,ob->name);
+strcpy(dob,ob->dob);
+strcpy(Class,ob->Class);
+strcpy(Div,ob->Div);
+strcpy(bg,ob->bg);
+strcpy(contact,ob->contact);
+strcpy(phone,ob->phone);
+strcpy(license,ob->license);
+++stdno;
+}
+void getdata() //Takes input for the student details
+{
+cout<<"\n\nEnter:name,roll,Class,Div,Dob,bg,contact,phone,license \n\n\n";
+cin>>name>>roll>>Class>>Div>>dob>>bg>>contact>>phone>>license;
+}
+friend void display(db d); // friend function
+~db() // destructor that display a message when object is destroy
+{
+cout<<"\n\n"<<this->name<<"(Object) is destroyed!";
+}
+};
+
+void display(db d)
+{
+cout<<"\n"<<setw(12)<<d.name<<setw(5)<<d.roll<<setw(4)<<d.Class<<setw(3)<<d.Div<<setw(12)<<d.dob<<setw(4)<<d.bg<<setw(12)<<d.contact<<" "<<setw(12)<<d.phone<<" "<<setw(12)<<" "<<d.license;
+}
+int db::stdno;  //static member function
+
+int main()
+{
+int n,i;
+db d1,*ptr[5];
+cout<<"\nDefault values:";
+display(d1);
+
+d1.getdata();
+display(d1);
+
+db d2(&d1);
+cout<<"\n\nUse of copy constructor :\n";
+display(d2);
+
+
+cout<<"\nHow many objects u want to create?:";
+cin>>n;
+for(i=0;i<n;i++)
+{
+ptr[i]=new db();
+ptr[i]->getdata();
+}
+cout<<"\n"<<setw(12)<<"name"<<setw(5)<<"roll"<<setw(4)<<"Class"<<setw(4)<<"Div"<<setw(12)<<"dob"<<setw(4)<<"bg"<<setw(12)<<"contact"<<setw(12)<<"phone"<<setw(12)<<"license";
+for(i=0;i<n;i++)
+display(*ptr[i]);
+db::count();
+for(i=0;i<n;i++)
+{
+delete(ptr[i]);
+}
+cout<<"\nObjects deleted!" ;
+return 0;
+}
+
+OUTPUT
+
+Default values:
+      Sachin    0   I  A 11/11/1111A   A        city 9000000000A0101010             A0101010
+
+Sachin(Object) is destroyed!
+
+Enter:name,roll,Class,Div,Dob,bg,contact,phone,license
+
+
+SUHANI
+10
+SE
+C
+06/07/2004
+ABC
+9876543877
+9876543245
+NO
+
+      SUHANI   10  SE  C06/07/2004ABC98765438779876543245NOABC98765438779876543245NO98765438779876543245NO 9876543245NO             NO
+
+SUHANI(Object) is destroyed!
+
+Use of copy constructor :
+
+      SUHANI7208520  SE  C06/07/2004ABC98765438779876543245NOABC98765438779876543245NO98765438779876543245NO 9876543245NO             NO
+
+SUHANI(Object) is destroyed!
+How many objects u want to create?:1
+
+
+Enter:name,roll,Class,Div,Dob,bg,contact,phone,license
+
+
+PRIYA
+15
+TE
+A
+22/04/2004
+XYZ
+7898756544
+9876543579
+NO
+
+        name rollClass Div         dob  bg     contact       phone     license
+       PRIYA   15  TE  A22/04/2004XYZ78987565449876543579NOXYZ78987565449876543579NO78987565449876543579NO 9876543579NO             NO
+
+PRIYA(Object) is destroyed!
+No. of objects created: 3
+
+PRIYA(Object) is destroyed!
+Objects deleted!
+
+SUHANI(Object) is destroyed!
+
+SUHANI(Object) is destroyed!
+--------------------------------
+Process exited after 103.1 seconds with return value 0
+Press any key to continue . . .

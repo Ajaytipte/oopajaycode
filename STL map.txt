@@ -1,0 +1,85 @@
+Experiment no. 7
+Program code:
+
+
+#include <iostream>
+#include <map>
+#include<string>
+using namespace std;
+int main()
+{
+	string state;  // store the state name
+	int population; // store the population 
+	char ans = ‘y’;  // variable to control the loop // variable for user response 
+	int choice;  //  stores the users menu choice 
+	map<string,int> m;   // combination of string and int m is map name
+	map<string,int>::iterator i;  // iterator for traversing the map
+	do  // here use do while loop to display repeatedly menu to user
+	{
+		cout << "\n Main Menu";
+		cout << "\n1. Insert an element";
+		cout << "\n2. Display";
+		cout << "\n3. Search an state";
+		
+		cout << "\n Enter your choice: ";
+		cin >> choice;
+		switch (choice) //  to execute different code blocks on the users choice 
+		{
+		case 1:cout << "\n Enter the name of state: ";   // inserting an element 
+			cin >> state;
+			cout << "\n Enter the population(in Cr): ";
+			cin >> population;
+			m.insert(pair<string,int>(state,population));
+			break;
+		case 2:cout << "State and Populations are:  ";  // displaying the elements
+			for (i = m.begin(); i != m.end(); i++)//i is for iterator
+				cout <<"[" <<(*i).first << ", "<<(*i).second<<"] ";
+			break;
+		case 3:cout << "\n Enter the name of state for searching its population: ";   // for searching population of state entered by userwh
+
+			cin >> state;
+			if(m.count(state)!=0) // it check the state is exit in the map during seraching
+				cout << "Population is " << m.find(state)->second<<”Cr”;
+			else
+				cout << "State is not present in the list" << endl;
+			break;		
+		}
+		cout << "\n Do you want to continue?(y/n): ";  // continue the loop based on user input
+		cin >> ans;
+	} while (ans == 'y' || ans == 'Y');
+	return 0;
+}
+
+output:
+Main Menu
+1. Insert an element
+2. Display
+3. Search an state
+ Enter your choice: 1
+ Enter the name of state: maharashtra
+ Enter the population(in Cr): 125
+ Do you want to continue?(y/n): y
+ Main Menu
+1. Insert an element
+2. Display
+3. Search an state
+ Enter your choice: 1
+ Enter the name of state: gujrat
+ Enter the population(in Cr): 50
+ Do you want to continue?(y/n): y
+ Main Menu
+1. Insert an element
+2. Display
+3. Search an state
+ Enter your choice: 2
+ State and Populations are:  [gujrat, 50] [maharashtra, 125] 
+ Do you want to continue?(y/n): y
+ Main Menu
+1. Insert an element
+2. Display
+3. Search an state
+ Enter your choice: 3
+ Enter the name of state for searching its population: maharashtra
+ population is125cr
+ Do you want to continue?(y/n): n
+ 

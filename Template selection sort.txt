@@ -1,0 +1,87 @@
+Experiment No:-5
+
+Program Code :-
+
+#include<iostream>
+using namespace std;
+#define Size 10  // defines the size of array
+int n; // variable use to store number of elements
+//  create function for perform sorting
+template<class T>  // class T is a class type and T is a class name and  class is a typename 
+void selection(T A[Size])  // A an an argument
+{
+The function implements the selection sort algorithm. It finds the minimum element in the unsorted part of the array and swaps it with the first element of the unsorted part. This process is repeated until the entire array is sorted.
+           int i, j,Min;
+            T temp;  // T is datatype here and temp is variable 
+            for (i = 0; i <= n - 2; i++)
+            {
+                       Min = i;
+                       for (j = i + 1; j <=n - 1; j++)
+                        {
+                                    if(A[j]<A[Min])
+                                                Min= j;
+                        }
+                        temp = A[i];
+                        A[i] = A[Min];
+                        A[Min] = temp;
+            }
+
+             //Display sorted elements
+
+            cout << "\n The sorted List is ...\n";
+            for (i = 0; i<n; i++)
+                        cout<<"\t"<<A[i];
+}
+
+// main function
+
+int main() {
+            int i, A[Size]; //declare integer array A
+            float B[Size];  //declare float array B
+           cout<<"\n\t\t Selection Sort\n ";
+            cout << "\n\t Handling Integer elements ";
+            cout<<"\n How many elements are there ? ";
+           cin>>n;
+            cout<<"\n Enter the integer elements\n ";
+           for (i = 0; i<n; i++)
+           cin>>A[i];
+            selection(A); // call to selection sort
+            cout << "\n\t Handling Float elements ";
+            cout << "\n How many elements are there ? ";
+            cin >> n;
+            cout << "\n Enter the float elements\n ";
+           for (i = 0; i<n; i++)
+            cin >> B[i];
+            selection(B); // call to selection sort
+           cout << "\n";
+            return 0;
+}
+
+Output:-
+
+                 Selection Sort
+
+         Handling Integer elements
+ How many elements are there ? 5
+
+ Enter the integer elements
+ 50
+65
+96
+89
+45
+
+ The sorted List is ...
+        45      50      65      89      96
+         Handling Float elements
+ How many elements are there ? 5
+
+ Enter the float elements
+ 55.65
+22.63
+57.65
+89.21
+97.32
+
+ The sorted List is ...
+        22.63   55.65   57.65   89.21   97.32
