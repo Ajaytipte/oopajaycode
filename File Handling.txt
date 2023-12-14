@@ -60,3 +60,10 @@ Enter Salary:5000
 Enter Name:aniket
 Enter Id:1245
 Enter Salary:60000
+
+Algrithm:
+1. Create a file “telelphone.txt”
+2. Read input from the user .
+3. Write the data to the file using oftsream.
+4. Read the input from the file using ifstream
+5. Display the contents
